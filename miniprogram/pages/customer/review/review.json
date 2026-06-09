@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "rating": "/components/rating/rating"
+  },
+  "navigationBarTitleText": "发表评价"
+}

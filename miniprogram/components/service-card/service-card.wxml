@@ -1,0 +1,14 @@
+<view class="service-card" bindtap="onCardTap">
+  <image class="service-image" src="{{image}}" mode="aspectFill"></image>
+  <view class="service-content">
+    <text class="service-name">{{name}}</text>
+    <text class="service-description">{{description}}</text>
+    <view class="service-footer">
+      <view class="price-section">
+        <text class="service-price">¥{{price}}</text>
+        <text class="service-duration">{{duration}}分钟</text>
+      </view>
+      <view class="book-tag">{{bookText}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,67 @@
+<view class="container">
+  <view class="header">
+    <view class="welcome-section">
+      <text class="greeting">欢迎光临</text>
+      <text class="shop-name">中医推拿养生馆</text>
+    </view>
+    <view class="user-info" wx:if="{{userInfo}}">
+      <text class="nickname">{{userInfo.nickname}}</text>
+    </view>
+  </view>
+
+  <view class="banner">
+    <swiper class="banner-swiper" indicator-dots autoplay circular>
+      <swiper-item wx:for="{{banners}}" wx:key="id">
+        <image class="banner-image" src="{{item.image}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class="quick-actions">
+    <view class="action-item" bindtap="goToServices">
+      <view class="action-icon">📋</view>
+      <text class="action-text">预约服务</text>
+    </view>
+    <view class="action-item" bindtap="goToOrders">
+      <view class="action-icon">📝</view>
+      <text class="action-text">我的订单</text>
+    </view>
+    <view class="action-item" bindtap="goToProfile">
+      <view class="action-icon">👤</view>
+      <text class="action-text">会员中心</text>
+    </view>
+  </view>
+
+  <view class="services-section">
+    <view class="section-header">
+      <text class="section-title">热门服务</text>
+      <text class="section-more" bindtap="goToServices">查看全部 ></text>
+    </view>
+    
+    <view class="services-grid">
+      <view 
+        class="service-card" 
+        wx:for="{{services}}" 
+        wx:key="id"
+        bindtap="goToServiceDetail"
+        data-id="{{item._id}}"
+      >
+        <image class="service-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="service-info">
+          <text class="service-name">{{item.name}}</text>
+          <text class="service-duration">{{item.duration}}分钟</text>
+          <view class="service-footer">
+            <text class="service-price">¥{{item.price}}</text>
+            <text class="service-book">预约</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{services.length === 0}}">
+    <text class="empty-text">暂无服务</text>
+  </view>
+
+  <view class="bottom-safe-area"></view>
+</view>

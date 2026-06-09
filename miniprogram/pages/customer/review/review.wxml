@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="order-info">
+    <text class="order-title">评价订单</text>
+    <text class="order-no">{{orderNo}}</text>
+  </view>
+
+  <view class="service-info">
+    <text class="service-name">{{serviceName}}</text>
+    <text class="appointment-time">预约时间：{{appointmentTime}}</text>
+  </view>
+
+  <view class="rating-section">
+    <rating 
+      label="总体评价"
+      required="{{true}}"
+      placeholder="请分享您的服务体验"
+      value="{{rating}}"
+      content="{{content}}"
+      bindchange="onRatingChange"
+    />
+  </view>
+
+  <view class="submit-section">
+    <button class="submit-button" bindtap="submitReview" disabled="{{rating === 0}}">
+      提交评价
+    </button>
+  </view>
+</view>

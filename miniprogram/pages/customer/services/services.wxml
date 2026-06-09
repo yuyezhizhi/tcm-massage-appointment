@@ -1,0 +1,58 @@
+<view class="container">
+  <view class="filter-section">
+    <scroll-view class="category-scroll" scroll-x>
+      <view class="category-list">
+        <view 
+          class="category-item {{currentCategory === '' ? 'active' : ''}}"
+          bindtap="selectCategory"
+          data-category=""
+        >
+          全部
+        </view>
+        <view 
+          class="category-item {{currentCategory === item ? 'active' : ''}}"
+          wx:for="{{categories}}"
+          wx:key="*this"
+          bindtap="selectCategory"
+          data-category="{{item}}"
+        >
+          {{item}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="services-list">
+    <view 
+      class="service-item"
+      wx:for="{{services}}"
+      wx:key="id"
+      bindtap="goToDetail"
+      data-id="{{item._id}}"
+    >
+      <image class="service-image" src="{{item.image}}" mode="aspectFill"></image>
+      <view class="service-content">
+        <view class="service-header">
+          <text class="service-name">{{item.name}}</text>
+          <text class="service-duration">{{item.duration}}分钟</text>
+        </view>
+        <text class="service-description">{{item.description}}</text>
+        <view class="service-footer">
+          <view class="price-section">
+            <text class="service-price">¥{{item.price}}</text>
+            <text class="original-price" wx:if="{{item.originalPrice}}">¥{{item.originalPrice}}</text>
+          </view>
+          <view class="book-button">立即预约</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{services.length === 0 && !loading}}">
+    <text class="empty-text">暂无服务</text>
+  </view>
+
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+</view>

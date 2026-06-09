@@ -1,0 +1,21 @@
+{
+  "name": "tcm-massage-appointment",
+  "version": "1.0.0",
+  "description": "中医按摩推拿店预约小程序",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wechat",
+    "miniprogram",
+    "tcm",
+    "massage",
+    "appointment"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "miniprogram-simulate": "^1.6.0"
+  }
+}

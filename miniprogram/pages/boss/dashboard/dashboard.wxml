@@ -1,0 +1,89 @@
+<view class="container">
+  <view class="header">
+    <text class="page-title">经营概况</text>
+    <view class="date-range-picker" bindtap="selectDateRange">
+      <text>{{dateRangeText}}</text>
+      <text class="picker-arrow">▼</text>
+    </view>
+  </view>
+
+  <view class="stats-cards">
+    <view class="stat-card">
+      <text class="stat-label">订单数</text>
+      <text class="stat-value">{{stats.totalOrders}}</text>
+      <text class="stat-unit">单</text>
+    </view>
+    <view class="stat-card primary">
+      <text class="stat-label">营业额</text>
+      <text class="stat-value">¥{{stats.totalRevenue}}</text>
+      <text class="stat-unit">元</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-label">客流量</text>
+      <text class="stat-value">{{stats.uniqueCustomers}}</text>
+      <text class="stat-unit">人</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-label">客单价</text>
+      <text class="stat-value">¥{{stats.averageOrderValue}}</text>
+      <text class="stat-unit">元</text>
+    </view>
+  </view>
+
+  <view class="order-status-section">
+    <text class="section-title">订单状态</text>
+    <view class="status-grid">
+      <view class="status-item">
+        <text class="status-count status-pending">{{stats.pendingOrders}}</text>
+        <text class="status-label">待确认</text>
+      </view>
+      <view class="status-item">
+        <text class="status-count status-confirmed">{{stats.confirmedOrders}}</text>
+        <text class="status-label">已确认</text>
+      </view>
+      <view class="status-item">
+        <text class="status-count status-completed">{{stats.completedOrders}}</text>
+        <text class="status-label">已完成</text>
+      </view>
+      <view class="status-item">
+        <text class="status-count status-cancelled">{{stats.cancelledOrders}}</text>
+        <text class="status-label">已取消</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="chart-section">
+    <text class="section-title">七日趋势</text>
+    <view class="chart-container">
+      <view class="chart-bar" wx:for="{{trend}}" wx:key="date">
+        <view class="bar-wrapper">
+          <view class="bar" style="height: {{getBarHeight(item.orders)}}%"></view>
+        </view>
+        <text class="bar-date">{{item.date}}</text>
+        <text class="bar-value">{{item.orders}}单</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="quick-actions">
+    <text class="section-title">快捷操作</text>
+    <view class="action-grid">
+      <view class="action-item" bindtap="goToOrders">
+        <view class="action-icon">📋</view>
+        <text class="action-text">订单管理</text>
+      </view>
+      <view class="action-item" bindtap="goToServices">
+        <view class="action-icon">🛠️</view>
+        <text class="action-text">服务管理</text>
+      </view>
+      <view class="action-item" bindtap="generateSchedule">
+        <view class="action-icon">📅</view>
+        <text class="action-text">生成排班</text>
+      </view>
+      <view class="action-item" bindtap="viewServicesStats">
+        <view class="action-icon">📊</view>
+        <text class="action-text">服务统计</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,171 @@
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 20rpx;
+}
+
+.filter-tabs {
+  display: flex;
+  background: #ffffff;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  color: #666666;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #4A90A4;
+  font-weight: bold;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background: #4A90A4;
+  border-radius: 2rpx;
+}
+
+.orders-list {
+  padding: 30rpx;
+}
+
+.order-item {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.order-no {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.order-status {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: #ff9900;
+}
+
+.status-confirmed {
+  color: #4A90A4;
+}
+
+.status-completed {
+  color: #4caf50;
+}
+
+.status-cancelled {
+  color: #999999;
+}
+
+.order-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.service-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.appointment-time {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.order-amount {
+  font-size: 34rpx;
+  color: #ff4444;
+  font-weight: bold;
+}
+
+.order-actions {
+  display: flex;
+  gap: 10rpx;
+}
+
+.cancel-button,
+.review-button {
+  font-size: 26rpx;
+  padding: 12rpx 30rpx;
+  border-radius: 30rpx;
+  border: 1rpx solid #e0e0e0;
+  background: #ffffff;
+  color: #333333;
+}
+
+.review-button {
+  background: linear-gradient(135deg, #4A90A4 0%, #67B8C9 100%);
+  color: #ffffff;
+  border: none;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 100rpx 0;
+}
+
+.empty-text {
+  color: #999999;
+  font-size: 28rpx;
+  display: block;
+  margin-bottom: 40rpx;
+}
+
+.go-book {
+  background: linear-gradient(135deg, #4A90A4 0%, #67B8C9 100%);
+  color: #ffffff;
+  font-size: 28rpx;
+  padding: 20rpx 60rpx;
+  border-radius: 40rpx;
+  border: none;
+  display: inline-block;
+}
+
+.loading {
+  text-align: center;
+  padding: 40rpx 0;
+  color: #999999;
+  font-size: 28rpx;
+}

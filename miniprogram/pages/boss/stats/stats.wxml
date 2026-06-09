@@ -1,0 +1,50 @@
+<view class="container">
+  <view class="header">
+    <picker class="date-range-picker" mode="selector" range="{{dateRanges}}" range-key="text" value="{{dateRangeIndex}}" bindchange="onDateRangeChange">
+      <view class="picker-display">
+        <text>{{dateRanges[dateRangeIndex].text}}</text>
+        <text class="picker-arrow">▼</text>
+      </view>
+    </picker>
+  </view>
+
+  <view class="services-stats" wx:if="{{type === 'services'}}">
+    <text class="section-title">服务排行</text>
+    <view class="services-list">
+      <view 
+        class="service-item"
+        wx:for="{{servicesStats}}"
+        wx:key="serviceId"
+      >
+        <view class="service-rank">
+          <text class="rank-num rank-{{index + 1}}">{{index + 1}}</text>
+        </view>
+        <view class="service-info">
+          <text class="service-name">{{item.serviceName}}</text>
+          <text class="service-count">{{item.count}}单</text>
+        </view>
+        <view class="service-revenue">
+          <text class="revenue-value">¥{{item.revenue}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="revenue-stats" wx:if="{{type === 'revenue'}}">
+    <text class="section-title">收入明细</text>
+    <view class="revenue-list">
+      <view 
+        class="revenue-item"
+        wx:for="{{revenueDetail}}"
+        wx:key="date"
+      >
+        <text class="revenue-date">{{item.date}}</text>
+        <text class="revenue-amount">¥{{item.revenue}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{(servicesStats.length === 0 && type === 'services') || (revenueDetail.length === 0 && type === 'revenue')}}">
+    <text class="empty-text">暂无数据</text>
+  </view>
+</view>

@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="header">
+    <button class="add-button" bindtap="addService">+ 新增服务</button>
+  </view>
+
+  <view class="services-list">
+    <view 
+      class="service-item"
+      wx:for="{{services}}"
+      wx:key="id"
+    >
+      <image class="service-image" src="{{item.image}}" mode="aspectFill"></image>
+      <view class="service-content">
+        <view class="service-header">
+          <text class="service-name">{{item.name}}</text>
+          <view class="service-actions">
+            <text class="action-btn" bindtap="editService" data-id="{{item._id}}">编辑</text>
+            <text class="action-btn delete" bindtap="deleteService" data-id="{{item._id}}">删除</text>
+          </view>
+        </view>
+        <text class="service-description">{{item.description}}</text>
+        <view class="service-meta">
+          <text class="service-price">¥{{item.price}}</text>
+          <text class="service-duration">{{item.duration}}分钟</text>
+          <text class="service-category">{{item.category}}</text>
+        </view>
+        <view class="service-status">
+          <text class="status-tag status-{{item.status}}">{{item.status === 'active' ? '上架中' : '已下架'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{services.length === 0}}">
+    <text class="empty-text">暂无服务</text>
+    <button class="add-first-service" bindtap="addService">添加第一个服务</button>
+  </view>
+</view>

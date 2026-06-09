@@ -1,0 +1,70 @@
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 30rpx;
+}
+
+.order-info {
+  background: #ffffff;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.order-no {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.service-info {
+  background: #ffffff;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  margin-bottom: 30rpx;
+}
+
+.service-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.appointment-time {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.rating-section {
+  background: #ffffff;
+  padding: 30rpx;
+  border-radius: 16rpx;
+  margin-bottom: 30rpx;
+}
+
+.submit-section {
+  padding: 30rpx;
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #4A90A4 0%, #67B8C9 100%);
+  color: #ffffff;
+  font-size: 32rpx;
+  padding: 24rpx 0;
+  border-radius: 16rpx;
+  border: none;
+}
+
+.submit-button[disabled] {
+  background: #cccccc;
+}

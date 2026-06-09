@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/customer/index/index",
+    "pages/customer/services/services",
+    "pages/customer/service-detail/service-detail",
+    "pages/customer/orders/orders",
+    "pages/customer/profile/profile",
+    "pages/boss/dashboard/dashboard",
+    "pages/boss/services-mgr/services-mgr",
+    "pages/boss/orders-mgr/orders-mgr",
+    "pages/boss/stats/stats"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4A90A4",
+    "navigationBarTitleText": "中医推拿预约",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4A90A4",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/customer/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/customer/services/services",
+        "text": "服务",
+        "iconPath": "images/service.png",
+        "selectedIconPath": "images/service-active.png"
+      },
+      {
+        "pagePath": "pages/customer/orders/orders",
+        "text": "订单",
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/order-active.png"
+      },
+      {
+        "pagePath": "pages/customer/profile/profile",
+        "text": "我的",
+        "iconPath": "images/profile.png",
+        "selectedIconPath": "images/profile-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "cloud": true
+}

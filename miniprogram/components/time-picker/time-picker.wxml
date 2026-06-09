@@ -1,0 +1,44 @@
+<view class="time-picker">
+  <view class="picker-header">
+    <text class="header-title">选择时间</text>
+    <text class="header-close" bindtap="onClose">✕</text>
+  </view>
+  
+  <view class="date-section">
+    <scroll-view class="date-scroll" scroll-x>
+      <view class="date-list">
+        <view 
+          class="date-item {{selectedDate === item.date ? 'active' : ''}}"
+          wx:for="{{dates}}"
+          wx:key="date"
+          bindtap="selectDate"
+          data-date="{{item.date}}"
+        >
+          <text class="date-month">{{item.month}}/{{item.day}}</text>
+          <text class="date-week">{{item.weekDay}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="time-section">
+    <view class="time-grid">
+      <view 
+        class="time-slot {{slot.status === 'full' ? 'disabled' : ''}} {{selectedSlot === slot.timeSlot ? 'selected' : ''}}"
+        wx:for="{{timeSlots}}"
+        wx:key="timeSlot"
+        bindtap="selectSlot"
+        data-slot="{{slot}}"
+      >
+        {{slot.timeSlot}}
+        <text class="slot-status" wx:if="{{slot.status === 'full'}}">已满</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="picker-footer">
+    <button class="confirm-button" bindtap="onConfirm" disabled="{{!selectedDate || !selectedSlot}}">
+      确认选择
+    </button>
+  </view>
+</view>

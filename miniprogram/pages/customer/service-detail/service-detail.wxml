@@ -1,0 +1,78 @@
+<view class="container">
+  <view class="service-header" wx:if="{{service}}">
+    <image class="header-image" src="{{service.image}}" mode="aspectFill"></image>
+    <view class="service-basic-info">
+      <text class="service-name">{{service.name}}</text>
+      <view class="service-meta">
+        <text class="service-duration">{{service.duration}}分钟</text>
+        <text class="service-category">{{service.category}}</text>
+      </view>
+      <view class="price-row">
+        <text class="service-price">¥{{service.price}}</text>
+        <text class="monthly-sales" wx:if="{{service.sales}}">月销{{service.sales}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="service-description" wx:if="{{service}}">
+    <text class="section-title">服务介绍</text>
+    <text class="description-text">{{service.description}}</text>
+  </view>
+
+  <view class="appointment-section">
+    <text class="section-title">选择预约时间</text>
+    
+    <view class="date-scroll">
+      <scroll-view class="date-list" scroll-x>
+        <view 
+          class="date-item {{selectedDate === item.date ? 'active' : ''}}"
+          wx:for="{{dates}}"
+          wx:key="date"
+          bindtap="selectDate"
+          data-date="{{item.date}}"
+        >
+          <text class="date-text">{{item.month}}/{{item.day}}</text>
+          <text class="date-week">{{item.weekDay}}</text>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class="time-slots" wx:if="{{timeSlots.length > 0}}">
+      <view 
+        class="time-slot {{slot.status === 'full' ? 'disabled' : ''}} {{selectedTimeSlot === slot.timeSlot ? 'selected' : ''}}"
+        wx:for="{{timeSlots}}"
+        wx:key="timeSlot"
+        bindtap="selectTimeSlot"
+        data-slot="{{slot}}"
+      >
+        {{slot.timeSlot}}
+        <text class="slot-status" wx:if="{{slot.status === 'full'}}">已满</text>
+      </view>
+    </view>
+
+    <view class="no-slots" wx:if="{{timeSlots.length === 0 && dates.length > 0}}">
+      <text>暂无可预约时段</text>
+    </view>
+  </view>
+
+  <view class="remark-section">
+    <text class="section-title">备注（选填）</text>
+    <textarea 
+      class="remark-input"
+      placeholder="请填写您的需求或特殊情况"
+      maxlength="200"
+      value="{{remark}}"
+      bindinput="onRemarkInput"
+    ></textarea>
+  </view>
+
+  <view class="bottom-bar">
+    <view class="price-info">
+      <text class="total-price">¥{{service?.price}}</text>
+      <text class="member-discount" wx:if="{{memberInfo?.discount > 0}}">会员折扣：{{memberInfo.discount * 10}}折</text>
+    </view>
+    <button class="book-button" bindtap="submitAppointment" disabled="{{!selectedDate || !selectedTimeSlot}}">
+      立即预约
+    </button>
+  </view>
+</view>

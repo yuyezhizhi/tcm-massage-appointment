@@ -1,0 +1,30 @@
+<view class="rating-component">
+  <view class="rating-header">
+    <text class="rating-label">{{label}}</text>
+    <text class="rating-required" wx:if="{{required}}">*</text>
+  </view>
+  
+  <view class="stars">
+    <text 
+      class="star {{index < value ? 'active' : ''}}"
+      wx:for="{{[0,1,2,3,4]}}"
+      wx:key="index"
+      data-value="{{index + 1}}"
+      bindtap="selectRating"
+    >
+      {{index < value ? '★' : '☆'}}
+    </text>
+  </view>
+
+  <textarea 
+    class="rating-input"
+    placeholder="{{placeholder}}"
+    maxlength="200"
+    value="{{content}}"
+    bindinput="onContentInput"
+  ></textarea>
+
+  <view class="rating-footer">
+    <text class="char-count">{{contentLength}}/200</text>
+  </view>
+</view>
